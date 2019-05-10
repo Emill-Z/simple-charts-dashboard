@@ -1,0 +1,30 @@
+.root-menu-list {
+  &__link {
+    display: inline-block;
+    width: 100%;
+    font-weight: 300;
+    font-size: 13px;
+    color: silver;
+    border-left: 5px solid transparent;
+    padding: 5px 5px 5px 35px;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+    
+    &.active {
+      border-left: 5px solid black;
+      color: black;
+    }
+  }
+}
+
+.exit-block {
+  font-weight: 300;
+  font-size: 13px;
+  padding: 15px 5px 5px 20px;
+  cursor: pointer;
+  border-top: 1px solid black;
+  margin: 11px 29px 0 21px;
+}

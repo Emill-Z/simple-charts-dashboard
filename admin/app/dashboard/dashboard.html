@@ -1,0 +1,188 @@
+<div class="section-head">
+  <div>
+    <span class="section-head__title">Chart Weather</span> <span class="section-head__sm">for Petrozavodsk, RU</span>
+  </div>
+
+  <div class="row row_vertical-center">
+    <span class="section-head-select-title">Show on</span>
+    <c-select
+      model="$ctrl.dateSelected"
+      options="$ctrl.dateList"
+      on-change="$ctrl.dateSelected = value; $ctrl.setDate()"
+    ></c-select>
+  </div>
+</div>
+
+<div class="section-head-information">
+  <p>
+    Data obtained from <a href="https://openweathermap.org/forecast5" target="_blank" rel="noopener noreferrer">this</a> source
+  </p>
+</div>
+  
+<div class="section-wrapper section-wrapper_marg-b row">
+  <div
+    class="relative chart-wrapper chart-wrapper_marr-r"
+    ng-if="$ctrl.dataHumidity"
+  >
+    <c-chart-icon-controllers
+      is-show-filter="!$ctrl.isShowHumiditySettings && $ctrl.showFilter.humidity"
+      is-show-compar="!$ctrl.isShowHumiditySettings && !$ctrl.showFilter.humidity"
+      is-show-close="$ctrl.isShowHumiditySettings"
+      is-show-settings="!$ctrl.isShowHumiditySettings"
+      on-click-close="$ctrl.isShowHumiditySettings = !$ctrl.isShowHumiditySettings"
+      on-click-settings="$ctrl.isShowHumiditySettings = !$ctrl.isShowHumiditySettings"
+      on-click-filter="$ctrl.clearComparison($ctrl.dataHumidity, 'humidity')"
+      on-click-compar="$ctrl.setComparison($ctrl.dataHumidity, 'humidity')"
+    ></c-chart-icon-controllers>
+
+    <div ng-if="$ctrl.isShowHumiditySettings" class="chart-wrapper-settings">
+      <div class="chart-wrapper-settings__title">
+        Settings:
+      </div>
+      <div class="cahrt-settings-wrapper row row_vertical-center">
+        <div class="cahrt-settings-wrapper__label">Humidity color:</div>
+        <div>
+          <color-picker
+            ng-model="$ctrl.dataHumidityColor"
+            options="$ctrl.optionsColorPicker"
+            event-api="$ctrl.eventApiColorPickerHumidity"
+          ></color-picker>
+        </div>
+      </div>
+    </div>
+
+    <c-dashboard-chart
+      name="Humidity chart"
+      axis-label-x="Time"
+      chart-data="$ctrl.dataHumidity"
+      tick-format-x-fn="$ctrl.tickFormatXFnHumidity"
+      tick-format-y-fn="$ctrl.tickFormatYFnHumidity"
+    ></c-dashboard-chart>
+  </div>
+    
+  <div
+    class="relative chart-wrapper"
+    ng-if="$ctrl.dataTemperature"
+  >
+    <c-chart-icon-controllers
+      is-show-filter="!$ctrl.isShowTemperatureSettings && $ctrl.showFilter.temperature"
+      is-show-compar="!$ctrl.isShowTemperatureSettings && !$ctrl.showFilter.temperature"
+      is-show-close="$ctrl.isShowTemperatureSettings"
+      is-show-settings="!$ctrl.isShowTemperatureSettings"
+      on-click-close="$ctrl.isShowTemperatureSettings = !$ctrl.isShowTemperatureSettings"
+      on-click-settings="$ctrl.isShowTemperatureSettings = !$ctrl.isShowTemperatureSettings"
+      on-click-filter="$ctrl.clearComparison($ctrl.dataTemperature, 'temperature')"
+      on-click-compar="$ctrl.setComparison($ctrl.dataTemperature, 'temperature')"
+    ></c-chart-icon-controllers>
+    
+    <div ng-if="$ctrl.isShowTemperatureSettings" class="chart-wrapper-settings chart-wrapper-settings_temp">
+      <div class="chart-wrapper-settings__title">
+        Settings:
+      </div>
+      <div class="cahrt-settings-wrapper row row_vertical-center">
+        <div class="cahrt-settings-wrapper__label">Temperature color:</div>
+        <div>
+          <color-picker
+            ng-model="$ctrl.dataTemperatureColor"
+            options="$ctrl.optionsColorPicker"
+            event-api="$ctrl.eventApiColorPickerTemperature"
+          ></color-picker>
+        </div>
+      </div>
+      <div class="cahrt-settings-wrapper row row_vertical-center">
+        <div class="cahrt-settings-wrapper__label">Temperature min color:</div>
+        <div>
+          <color-picker
+            ng-model="$ctrl.dataTemperatureColorMin"
+            options="$ctrl.optionsColorPicker"
+            event-api="$ctrl.eventApiColorPickerTemperatureMin"
+          ></color-picker>
+        </div>
+      </div>
+      <div class="cahrt-settings-wrapper row row_vertical-center">
+        <div class="cahrt-settings-wrapper__label">Temperature max color:</div>
+        <div>
+          <color-picker
+            ng-model="$ctrl.dataTemperatureColorMax"
+            options="$ctrl.optionsColorPicker"
+            event-api="$ctrl.eventApiColorPickerTemperatureMax"
+          ></color-picker>
+        </div>
+      </div>
+    </div>
+
+    <c-dashboard-chart
+      name="Temperature chart"
+      axis-label-x="Time"
+      chart-data="$ctrl.dataTemperature"
+      tick-format-x-fn="$ctrl.tickFormatXFnTemperature"
+      tick-format-y-fn="$ctrl.tickFormatYFnTemperature"
+    ></c-dashboard-chart>
+  </div>
+</div>
+
+<div class="section-wrapper row">
+  <div
+    class="relative chart-wrapper"
+    ng-if="$ctrl.dataWind"
+  >
+    <c-chart-icon-controllers
+      is-show-filter="!$ctrl.isShowWindSettings && $ctrl.showFilter.wind"
+      is-show-compar="!$ctrl.isShowWindSettings && !$ctrl.showFilter.wind"
+      is-show-close="$ctrl.isShowWindSettings"
+      is-show-settings="!$ctrl.isShowWindSettings"
+      on-click-close="$ctrl.isShowWindSettings = !$ctrl.isShowWindSettings"
+      on-click-settings="$ctrl.isShowWindSettings = !$ctrl.isShowWindSettings"
+      on-click-filter="$ctrl.clearComparison($ctrl.dataWind, 'wind')"
+      on-click-compar="$ctrl.setComparison($ctrl.dataWind, 'wind')"
+    ></c-chart-icon-controllers>
+
+    <div ng-if="$ctrl.isShowWindSettings" class="chart-wrapper-settings chart-wrapper-settings_temp">
+      <div class="chart-wrapper-settings__title">
+        Settings:
+      </div>
+      <div class="cahrt-settings-wrapper row row_vertical-center">
+        <div class="cahrt-settings-wrapper__label">Temperature color:</div>
+        <div>
+          <color-picker
+            ng-model="$ctrl.dataWindColor"
+            options="$ctrl.optionsColorPicker"
+            event-api="$ctrl.eventApiColorPickerWind"
+          ></color-picker>
+        </div>
+      </div>
+    </div>
+
+    <c-dashboard-chart
+      name="Wind chart"
+      axis-label-x="Time"
+      chart-data="$ctrl.dataWind"
+      tick-format-x-fn="$ctrl.tickFormatXFnWind"
+      tick-format-y-fn="$ctrl.tickFormatYFnWind"
+    ></c-dashboard-chart>
+  </div>
+
+  
+
+  <div class="relative chart-wrapper chart-wrapper_marr-l compare">
+    <div
+      ng-if="$ctrl.dataComparison.length === 0"
+      class="placeholder-mask row row_vertical-center row_horisontal-center"
+    >
+      <div>
+        <span class="placeholder-mask__text">For comparison, click on the icon</span>
+        <img class="placeholder-mask__icon" width="30" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVEhL7da7LwRhFMbhcYtLXOKS0BAkEpUCDdHRKUj8Awq1RqWl0EhEQatBISqJRE2jEZdGpVCJksT9+ntjTnIimdnMsBLMmzzZ3bMz39n99sxkgyx/JUXh449mGU84QosKX0kpCj6exqYXb84CUmcaD7hAvwoR0fYuwTeeRapU4wW20B6K8TlV2IKOucMp1qHzE6cZO7Cm5gzj0AeoQwdOoPe0K31IHH3CMkzgCrbYPrZxHNbkEq/u9SFSDdMUtK2PsMVWoW9l0YCNwb6h0etKJI4G4xa2kJ6PICr1uIcdvwhLI9rRhkIVcuUctpB+21wZxS5WUKsC6cIzbJ055IyuQTXcRKsKYZrQg26UqxCTYVhTWUOq1OAGtpAGLC7f1lhT6hfSEFm0K9oJ0ZWg5L2xBsf/lpp+JVVj3TCGMAhNrRLVeAC+rjuakrhxCa5hJxxAyXtjDZE/QZeWkjXOGpvf17gCG47+sCkN8PV5KJ3w9Rkoup/7+iSy/KsEwTv/ye0RCudNOQAAAABJRU5ErkJggg==">
+      </div>
+    </div>
+
+    <c-dashboard-chart
+      name="Wind chart"
+      axis-label-x="Time"
+      show-select="false"
+      chart-data="$ctrl.dataComparison"
+      tick-format-y-fn="$ctrl.tickFormatYFnComparison"
+      tick-format-x-fn="$ctrl.tickFormatXFnComparison"
+    ></c-dashboard-chart>
+  </div>
+
+</div>

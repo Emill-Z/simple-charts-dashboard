@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "chrome": 52,
+        "browsers": ["last 2 versions", "IE 11"]
+      },
+      "debug": true
+    }]
+  ]
+}

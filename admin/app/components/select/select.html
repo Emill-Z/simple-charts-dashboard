@@ -1,0 +1,18 @@
+<div
+  class="relative"
+  style="width: 300px;"
+>
+  <img class="select-arrow-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEhSURBVEhL7dUtS4NhHIXxRwRRQWUDm2HBIAyDSbAM/AALIosGkx9gSRCL1TAMFptBkZUFwQ8gYrFYRRDEoBgswoav1394wynGc8NgF/zC0nlexnMXw/5pFCXM9H9lahwP+PlzjrgQe2O4RxoOLWRpEe/Q8U1kaQ3fSMM9rCBLu9C7fsYc7I2gDR2/wSTsxcgtdPwEcVH2KniBjm8jSzXEHywNf6GOLG1B7/oNVWTpEDp+hzLsxZftCjp+AHsLiEesw/avWpxW8Wh19AjW4oS6gI5eIh69tX3o6CNmYW0DOhon1xKsLaOLNBonVgPW4iR6gt7tHqxN4Bo62oH9cDiGjsYJNQ1rTejoK+ZhbQofSKOfWIW9eIc7OMMp1jFsUCqKXzWhaIKVX5XeAAAAAElFTkSuQmCC">
+  <ol
+    class="nya-bs-select relative"
+    ng-model="$ctrl.model"
+    ng-change="$ctrl.$onChange()"
+  >
+    <li
+      nya-bs-option="item in $ctrl.options"
+      data-value="item.value"
+    >
+      <a ng-bind="item.label"></a>
+    </li>
+  </ol>
+</div>

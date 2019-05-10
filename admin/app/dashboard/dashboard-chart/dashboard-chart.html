@@ -1,0 +1,14 @@
+<div>
+  <c-select
+    ng-if="$ctrl.isShowSelect"
+    model="$ctrl.selected"
+    options="$ctrl.optionsSelect"
+    on-change="$ctrl.selected = value; $ctrl.setTypeChart(value)"
+  ></c-select>
+</div>
+
+<nvd3
+  data="$ctrl.data"
+  options="$ctrl.options"
+  api="$ctrl.api"
+></nvd3>

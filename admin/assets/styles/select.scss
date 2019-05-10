@@ -1,0 +1,53 @@
+.nya-bs-select {
+  position: relative;
+  padding: 0;
+  margin: 0;
+
+  .btn {
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    border: none;
+    background: white;
+    color: black;
+    font-size: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+
+  .dropdown-menu.open {
+    display: none;
+    width: 100%;
+    background: white;
+    color: black;
+    border: 1px solid black;
+
+    li {
+      padding: 5px 15px;
+      cursor: pointer;
+      font-size: 13px;
+
+      &.selected {
+        background-color: rgba(0, 0, 0, 0.13);
+      }
+      
+      a {
+        outline: none;
+      }
+
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+
+  &.open {
+    .dropdown-menu.open {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      display: block;
+    }
+  }
+}

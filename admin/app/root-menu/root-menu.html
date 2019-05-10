@@ -1,0 +1,29 @@
+<ul class="root-menu-list">
+  <li class="root-menu-list__item">
+    <a
+      ui-sref="root.dashboard"
+      class="root-menu-list__link"
+      ng-class="{active: $ctrl.state.includes('admin.dashboard') || $ctrl.state.includes('admin')}"
+    >Dashboard</a>
+  </li>
+  <li class="root-menu-list__item">
+    <a
+      ui-sref="root.info"
+      class="root-menu-list__link"
+      ng-class="{active: $ctrl.state.includes('admin.info')}"
+    >Current weather</a>
+  </li>
+  <li class="root-menu-list__item">
+    <a
+      ui-sref="root.info"
+      class="root-menu-list__link"
+      ng-class="{active: $ctrl.state.includes('admin.info')}"
+    >Info</a>
+  </li>
+</ul>
+
+<div class="exit-block">
+  <span>
+    Exit
+  </span>
+</div>
