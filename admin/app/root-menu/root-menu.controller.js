@@ -8,7 +8,6 @@ function RootMenuController($state) {
   const ctrl = this;
 
   ctrl.$onInit = function() {
-    console.log('ROOT_MENU')
     ctrl.state = $state;
   }
 

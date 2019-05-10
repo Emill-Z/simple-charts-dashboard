@@ -1,5 +1,5 @@
 {
-  "name": "ng-dashboard",
+  "name": "dashboard",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,16 +7,9 @@
     "start": "webpack-dev-server --progress",
     "build": "NODE_ENV=production webpack --progress"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Emill-Z/ng-dashboard.git"
-  },
   "author": "emill.zuball@gmail.com",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Emill-Z/ng-dashboard/issues"
-  },
-  "homepage": "https://github.com/Emill-Z/ng-dashboard#readme",
+  "homepage": "https://github.com/Emill-Z/simple-charts-dashboard/blob/master/README.md",
   "dependencies": {
     "angular": "^1.6.10",
     "angular-nvd3": "^1.0.9",
